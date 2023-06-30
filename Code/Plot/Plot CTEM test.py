@@ -7,7 +7,7 @@ from Code.Read_data.read_simplified_RCMIP import *
 import matplotlib.pyplot as plt
 from Code.Calibrate.Functions import *
 from Code.Read_data.Constants_new import *
-from Code.FAIR2.fair.fair_runnter_intanal import run_FaIR_intanal, get_gas_parameter_defaults, \
+from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal, get_gas_parameter_defaults, \
     get_thermal_parameter_defaults
 
 

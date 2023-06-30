@@ -4,7 +4,7 @@ Script to produce coupled and uncoupled model ensembles
 
 import glob
 from Code.Calibrate.find_distributions import Ts_perf_dists, P_perf_dists, F_beta_dists, K_beta_dists
-from Code.FAIR2.fair.fair_runnter_intanal import run_FaIR_intanal
+from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal
 from Code.Read_data.read_simplified_RCMIP import SSP_emms
 from Code.Read_data.Constants_new import CH4_frac
 from Code.Read_data.Constants_new import r_PFTP, r_AMAZ, r_PFAT

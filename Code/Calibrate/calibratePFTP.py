@@ -3,7 +3,7 @@ Script to calibrate r for PFTP
 """
 import numpy as np
 from Code.Read_data.read_simplified_RCMIP import *
-from Code.FAIR2.fair.fair_runnter_intanal import run_FaIR_intanal
+from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal
 import matplotlib.pyplot as plt
 from Code.Read_data.Constants_new import *
 from scipy.optimize import minimize
