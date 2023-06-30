@@ -1,3 +1,7 @@
+"""
+Plot the calibrated r of PFTP and AMAZ (Fig. S2) as well as S for AMAZ (Fig. 1) under SSP5-8.5
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from Code.Read_data.Constants_new import Ts_min, Ts_max, Ts_mean
@@ -34,7 +38,7 @@ plt.tight_layout()
 plt.savefig('Plots/Calibration/Ts_PFTP_AMAZ.png', dpi=500)
 plt.show()
 
-# %% plot mean stock of AMAZ
+# %% plot S of AMAZ
 
 trg_year = find_trg_year(mean_AMAZ['tipping_elements'].xs(('AMAZ', 'bool_tip'), level=(1, 2), axis=1))
 thr_year = find_threshold(mean_AMAZ['tipping_elements'].xs(('AMAZ', 'C_stock'), level=(1, 2), axis=1), 0.995)

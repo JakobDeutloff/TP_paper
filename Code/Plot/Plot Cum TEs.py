@@ -1,3 +1,7 @@
+"""
+Plot the cumulative number of TEs crossing a certain percentile of tipping probability (Fig. 5)
+"""
+
 from Code.Read_data.Read_SSP_output import read_probs
 import matplotlib.pyplot as plt
 import numpy as np
@@ -7,8 +11,8 @@ import matplotlib.path as mpath
 mpl.use('Qt5Agg')
 
 # %%  load data
-P_tip = read_probs(ens_name='5000_tip_2')
-P_tip_const = read_probs('5000_const_2')
+P_tip = read_probs(ens_name='coupled_ensemble')
+P_tip_const = read_probs('uncoupled_ensemble')
 
 
 # %% def functions
@@ -26,7 +30,7 @@ def find_y(years, year, tol, dy):
 # %% Plot
 
 # Set plot parameters
-perc = 0.95
+perc = 0.5
 
 years_tip = P_tip['Years'].loc[perc]
 ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
@@ -163,4 +167,3 @@ fig.subplots_adjust(bottom=0.17)
 fig.legend(handles, labels, bbox_to_anchor=(0.93, 0.1), ncol=6)
 fig.savefig('Plots/Comparison/5000_tip_2_5000_const_2/Cum_TEs/perc' + str(perc) + '_cum_TEs.png', dpi=300,
             bbox_inches='tight')
-#plt.show()

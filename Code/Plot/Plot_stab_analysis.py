@@ -1,10 +1,10 @@
 """
-Plot stability analysis results for CTEM output and GMST
+Plot stability analysis (Fig. S8)
 """
+
 from Code.Read_data.read_var_and_stab_analysis import T
-#%%
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 # %% Plot temperature
 fig, ax = plt.subplots(figsize=(5, 4))
@@ -32,6 +32,5 @@ ax.set_xlabel('Year')
 ax.set_ylabel('GMST anomaly [°C]')
 ax.legend()
 plt.tight_layout()
-plt.savefig('Plots/Calibration/stab_analysis/T_stab.png', dpi=200)
+plt.savefig('Plots/Calibration/stab_analysis/T_stab.png', dpi=300)
 plt.show()
-

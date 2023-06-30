@@ -1,7 +1,7 @@
 """
-Script for determining and plotting the probability functions of tipping threshold temperatures and timescales
+Creates scipy stats probability distributions from parametrers of the distributions determined using the
+find_dist.R script
 """
-import matplotlib.pyplot as plt
 import numpy as np
 from Code.Read_data.Constants_new import par_P_lognorm_dist, par_P_perf_dist, par_Ts_perf_dist, K_max, K_min, \
     F_min, F_max

@@ -1,5 +1,5 @@
 """
-Script to calibrate and plot PFAT
+Script to calibrate the mean r for PFAT
 """
 import numpy as np
 from Code.Read_data.read_simplified_RCMIP import *

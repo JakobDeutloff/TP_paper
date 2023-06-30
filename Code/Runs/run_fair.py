@@ -2,11 +2,10 @@
 Script to produce coupled and uncoupled model ensembles
 """
 
-
 import glob
 from Code.Calibrate.find_distributions import Ts_perf_dists, P_perf_dists, F_beta_dists, K_beta_dists
 from Code.FAIR2.fair.fair_runnter_intanal import run_FaIR_intanal
-from Code.Read_data.read_simplified_RCMIP import SSP_emms, SSP_forc
+from Code.Read_data.read_simplified_RCMIP import SSP_emms
 from Code.Read_data.Constants_new import CH4_frac
 from Code.Read_data.Constants_new import r_PFTP, r_AMAZ, r_PFAT
 from scipy.stats import qmc
@@ -44,8 +43,8 @@ def load_fair_params(N_sets, from_source, ens_name):
             np.random.choice(FULL_ensemble_selection.sum(), N_sets, replace=False)]
 
         # Get the parameters for the constrained ensemble members
-        # member names, grouping 10000 memebers each to read in parameter data which is stored in seperate files, one for 10000
-        # members each
+        # member names, grouping 10000 memebers each to read in parameter data which is stored in seperate files,
+        # one for 10000 members each
         ALL_mems = [x.split(r"gas_params")[-1].split('.')[0] for x in
                     glob.glob(
                         r'C:\Users\jakob\3D Objects\util_data\parameter-sets/perturbed-parameters/gas_params/*.h5')]
@@ -88,7 +87,7 @@ def load_fair_params(N_sets, from_source, ens_name):
 
     #  If previously saved parameters should be used, they are loaded
     else:
-        ens_nam = '5000_tip'
+        ens_nam = 'coupled_ensemble'
         CONSTRAINED_thermal_set = pickle.load(open('Data/Params/' + ens_nam + '/thermal_set.pkl', 'rb'))
         CONSTRAINED_gas_set = pickle.load(open('Data/Params/' + ens_nam + '/gas_set.pkl', 'rb'))
         CONSTRAINED_extforc_sfs = pickle.load(open('Data/Params/' + ens_nam + '/extforc.pkl', 'rb'))
@@ -144,7 +143,7 @@ def load_TE_params(from_source, elements, N_sets, ens_name):
         pickle.dump(P_sample, open('Data/Params/' + ens_name + '/P_sample.pkl', 'wb'))
 
     else:
-        ens_nam = '5000_tip'
+        ens_nam = 'coupled_ensemble'
         TE_params = pickle.load(open('Data/Params/' + ens_nam + '/TE_params.pkl', 'rb'))
         P_sample = pickle.load(open('Data/Params/' + ens_nam + '/P_sample.pkl', 'rb'))
 
@@ -318,18 +317,18 @@ def run_fair_ens(choose_ssps, elements, N_sets, ens_name, use_TE_model, thermal_
     tip_prob_total = tip_prob_total / N_sets
 
     #  save results
-    quant_RF.to_csv('Data/SSP_output/' + ens_name + '/RF.csv')
-    quant_T.to_csv('Data/SSP_output/' + ens_name + '/T.csv')
-    quant_C.to_csv('Data/SSP_output/' + ens_name + '/C.csv')
-    quant_alpha_C.to_csv('Data/SSP_output/' + ens_name + '/alpha_C.csv')
-    quant_alpha_meth.to_csv('Data/SSP_output/' + ens_name + '/alpha_m.csv')
-    tip_prob_total.to_csv('Data/SSP_output/' + ens_name + '/tip_prob_total.csv')
-    Emm_ssp.to_csv('Data/SSP_output/' + ens_name + '/Emm.csv')
-    quant_TE.to_csv('Data/SSP_output/' + ens_name + '/TE.csv')
-    pickle.dump(total_TE, open('Data/SSP_output/' + ens_name + '/TE_total.pkl', 'wb'))
-    pickle.dump(res_years, open('Data/SSP_output/' + ens_name + '/result_years.pkl', 'wb'))
-    pickle.dump(rand_mems, open('Data/SSP_output/' + ens_name + '/rand_mems.pkl', 'wb'))
-    pickle.dump(all_T, open('Data/SSP_output/' + ens_name + '/full_T.pkl', 'wb'))
+    quant_RF.to_csv('Data/model_output/' + ens_name + '/RF.csv')
+    quant_T.to_csv('Data/model_output/' + ens_name + '/T.csv')
+    quant_C.to_csv('Data/model_output/' + ens_name + '/C.csv')
+    quant_alpha_C.to_csv('Data/model_output/' + ens_name + '/alpha_C.csv')
+    quant_alpha_meth.to_csv('Data/model_output/' + ens_name + '/alpha_m.csv')
+    tip_prob_total.to_csv('Data/model_output/' + ens_name + '/tip_prob_total.csv')
+    Emm_ssp.to_csv('Data/model_output/' + ens_name + '/Emm.csv')
+    quant_TE.to_csv('Data/model_output/' + ens_name + '/TE.csv')
+    pickle.dump(total_TE, open('Data/model_output/' + ens_name + '/TE_total.pkl', 'wb'))
+    pickle.dump(res_years, open('Data/model_output/' + ens_name + '/result_years.pkl', 'wb'))
+    pickle.dump(rand_mems, open('Data/model_output/' + ens_name + '/rand_mems.pkl', 'wb'))
+    pickle.dump(all_T, open('Data/model_output/' + ens_name + '/full_T.pkl', 'wb'))
 
 
 # main
@@ -343,7 +342,7 @@ def main():
     from_source = True
 
     # Set Ens name - also used to load and save parameters
-    ens_name = '5000_tip_2'
+    ens_name = 'coupled_ensemble'
 
     # If TE model should be coupled
     use_TE_model = True

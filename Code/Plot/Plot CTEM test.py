@@ -1,5 +1,6 @@
 """
-Script to explore errors in CTEM - Ts for PFTP and AMAZ and Cum. C Emissions for PFAT in 2100
+Script to explore errors in CTEM calibration - Ts for PFTP and AMAZ (Fig. S3) and Cum. C Emissions for PFAT (Fig. S4)
+in 2100
 """
 import numpy as np
 from Code.Read_data.read_simplified_RCMIP import *
@@ -14,7 +15,7 @@ from Code.FAIR2.fair.fair_runnter_intanal import run_FaIR_intanal, get_gas_param
 
 def load_forc(ssp):
     """
-    Load forcing and parameters to run fai
+    Load forcing and parameters to run fair
     :param ssp: ssp
     :return: thermal_params_ens, gas_params_ens, emms, forc
     """
@@ -122,10 +123,6 @@ def calculate_error_K(result):
 def calculate_errors(result, elem, Ts):
     """
     Calculates errors in Ts for PFATP and AMAZ
-    :param result:
-    :param elem:
-    :param Ts:
-    :return:
     """
     times = np.zeros((10, 10))
 
@@ -146,11 +143,6 @@ def calculate_errors(result, elem, Ts):
 def plot_errors(ax, errors, P_3d, K_3d, maxi):
     """
     Plots errors in Ts for PFTP and AMAZ
-    :param ax:
-    :param errors:
-    :param P_3d:
-    :param K_3d:
-    :return:
     """
 
     pm = ax.pcolormesh(P_3d, K_3d, errors, vmin=-maxi, vmax=maxi, cmap='RdBu')
@@ -179,9 +171,6 @@ def plot_errors(ax, errors, P_3d, K_3d, maxi):
 def test_K_PFAT(ssp, TE_params_PFAT):
     """
     Whole routine using above functions to generate plot of rlative error in cum. emissions in 2100
-    :param ssp: ssp
-    :param TE_params_PFAT: Dict with params to run fair
-    :return:
     """
     thermal_params_ens, gas_params_ens, emms, forc = load_forc(ssp)
 
@@ -226,14 +215,6 @@ def test_TS_PFTP_AMAZ(ssp, TE_params_PFTP_min, TE_params_PFTP_mean, TE_params_PF
                       TE_params_AMAZ_mean, TE_params_AMAZ_max):
     """
     Routine to plot relative error in Ts for PFTP and AMAZ
-    :param ssp:
-    :param TE_params_PFTP_min:
-    :param TE_params_PFTP_mean:
-    :param TE_params_PFTP_max:
-    :param TE_params_AMAZ_min:
-    :param TE_params_AMAZ_mean:
-    :param TE_params_AMAZ_max:
-    :return:
     """
 
     thermal_params_ens, gas_params_ens, emms, forc = load_forc(ssp)

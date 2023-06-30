@@ -10,7 +10,7 @@ import numpy as np
 # %% Load data
 
 #  Set ens name
-ens_name = '5000_tip_2'
+ens_name = 'coupled_ensemble'
 SSP_out = read_SSP_outout(ens_name)
 
 # %% Build tipping probs dataframes
@@ -68,7 +68,7 @@ for ssp in tip_years.columns.levels[0].values:
 
 
 # %% save tipping probs and years
-tip_years.to_csv('Data/SSP_output/' + ens_name + '/Y_tip.csv')
-tip_emms.to_csv('Data/SSP_output/' + ens_name + '/Cum_C_tip.csv')
-cum_TEs.to_csv('Data/SSP_output/' + ens_name + '/Cum_TEs.csv')
+tip_years.to_csv('Data/model_output/' + ens_name + '/Y_tip.csv')
+tip_emms.to_csv('Data/model_output/' + ens_name + '/Cum_C_tip.csv')
+cum_TEs.to_csv('Data/model_output/' + ens_name + '/Cum_TEs.csv')
 

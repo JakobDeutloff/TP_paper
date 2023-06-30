@@ -1,3 +1,8 @@
+"""
+Calculate carbon emissions from CO2 and CH4 emissions, plot carbon emissions (Fig. 3, Fig. S9),
+plot atmospheric concentrations of CO2 and CH4 (Fig. S10), calculate emission shares used in the text.
+"""
+
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from Code.Read_data.Read_SSP_output import read_SSP_outout, read_TE_output
@@ -18,12 +23,12 @@ def CH4_to_C(CH4):
     return C
 
 
-# %%
-const = read_SSP_outout('5000_const_2')
-tip = read_SSP_outout('5000_tip_2')
-TEs = read_TE_output('5000_tip_2')
+# %% Read data
+const = read_SSP_outout('uncoupled_ensemble')
+tip = read_SSP_outout('coupled_ensemble')
+TEs = read_TE_output('coupled_ensemble')
 
-# %%
+# %% Calculate carbon emissions
 
 # Only look at tier 1 SSPs
 ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
@@ -247,14 +252,4 @@ share = max / const
 print('share: ' + str(share) + ', max: ' + str(max))
 
 
-# %% Timing of emission peaks
-def get_em_times(ssp):
-    vals = emm_tip.loc[2000:, (ssp, '0.95')].sum(axis=1)
-    maxi = vals.max()
-    half_max = vals[vals > maxi / 2]
-    print(ssp + ': ' + str(half_max.index[[0, -1]].values))
-
-
-for ssp in ['ssp245', 'ssp370', 'ssp585']:
-    get_em_times(ssp)
 

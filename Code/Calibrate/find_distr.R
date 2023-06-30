@@ -1,3 +1,5 @@
+# Identifies parameters of the probability distributions using the rrisk distributins package
+
 install.packages('rriskDistributions')
 library('rriskDistributions')
 

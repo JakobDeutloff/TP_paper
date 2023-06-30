@@ -1,5 +1,5 @@
 """
-Plots the probability distributions used in the analysis
+Plots the probability distributions used in the analysis (Fig. 2, Fig. S5-S7)
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -30,7 +30,7 @@ for elem in ts_elements:
         RMSE_Ts[elem] = RMSE_Ts[elem][0]
 
 
-# %% Plot timescale distributions
+# %% Plot H of PFTP and AMAZ distributions
 
 def plot_ts_dist(ax, elem):
     x = np.arange(0, 351)
@@ -53,8 +53,9 @@ plt.savefig('Plots/Probability_dists/Ts_prob_dist.png', dpi=500)
 plt.show()
 
 
-# %% Plot perfect distributions
+# %% Plot P for all TEs
 def plot_distr_perf(elem, ax):
+
     x = np.linspace(0, 10, 200)
     y = P_perf_dists[elem].cdf(x=x)
     ax.plot(x, y, color='blue')
@@ -76,7 +77,7 @@ plt.tight_layout()
 plt.savefig('Plots/Probability_dists/all_perf.png', dpi=500)
 plt.show()
 
-# %% Plot K distributions
+# %% Plot K for carbon TEs
 fig, axes = plt.subplots(1, 3, figsize=(8, 3), sharey='row')
 
 # PFTP
@@ -110,7 +111,7 @@ plt.savefig('Plots/Probability_dists/K_prob_dist.png', dpi=500)
 
 plt.show()
 
-# %% Plot F distributions
+# %% Plot F for PFAT
 
 fig, axes = plt.subplots(1, 2, figsize=(8, 3), sharey='row')
 
@@ -138,37 +139,3 @@ plt.tight_layout()
 plt.savefig('Plots/Probability_dists/F_prob_dist.png', dpi=500)
 plt.show()
 
-# %% Plot single distribution
-
-fig, ax = plt.subplots()
-plot_distr_perf('PFTP', ax)
-ax.set_xlabel('GMST anomaly [°C]')
-ax.set_ylabel('CDF')
-plt.savefig('Plots/Probability_dists/PFTP_perf.png', dpi=500)
-
-
-# %% plot both distributions for comparision
-def plot_both_dists(elem, ax):
-    x = np.linspace(0, 10, 200)
-    y = P_perf_dists[elem].cdf(x=x)
-    y2 = P_log_norm_dist[elem].cdf(x=x)
-    ax.plot(x, y, color='green')
-    ax.plot(x, y2, color='blue', linestyle='--')
-    ax.plot([P_min[elem], P_mean[elem], P_max[elem]], [0.05, 0.5, 0.95], color='r', linestyle='', marker='o',
-            markersize=5)
-    ax.set_title(elem + ' ' + par_P_perf_dist[elem]['name'])
-
-
-fig, axes = plt.subplots(4, 4, sharex='col', sharey='row', figsize=(13, 10))
-for i in range(len(elements)):
-    plot_both_dists(elements[i], axes.flat[i])
-
-for ax in axes[-1, :]:
-    ax.set_xlabel('GMST anomaly [°C]')
-
-for ax in axes[:, 0]:
-    ax.set_ylabel('CDF')
-
-plt.tight_layout()
-plt.savefig('Plots/Probability_dists/all_both.png', dpi=500)
-plt.show()

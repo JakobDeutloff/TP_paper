@@ -9,7 +9,7 @@ import os
 import numpy as np
 
 # %% Load var analysis
-path = r'Data/SSP_output/585_var_analysis/'
+path = r'Data/model_output/585_var_analysis/'
 all_files_LH = glob.glob(os.path.join(path, r"*LH.csv"))
 all_files_rand = glob.glob(os.path.join(path, r"*Rand.csv"))
 li = []
@@ -29,6 +29,6 @@ keys = [str(x) for x in keys]
 Rand585 = pd.concat(li, axis=1, keys=keys)
 
 # %% Load stability analysis
-path = r'Data/SSP_output/585_stab_analysis'
+path = r'Data/model_output/585_stab_analysis'
 T = pd.read_csv(path + '/T.csv', index_col=0, parse_dates=[0], header=[0, 1])
 T.columns.names = ['ens_nember', 'percentile']

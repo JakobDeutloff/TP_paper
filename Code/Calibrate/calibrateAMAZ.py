@@ -1,5 +1,5 @@
 """
-Script to calibrate and plot AMAZ
+Script to calibrate r for AMAZ
 """
 import numpy as np
 from Code.Read_data.read_simplified_RCMIP import *

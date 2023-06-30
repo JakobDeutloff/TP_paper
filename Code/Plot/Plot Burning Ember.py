@@ -1,5 +1,5 @@
 """
-Make comparison plots fron tipping points and normal run. Burning ember and temperature
+Create Burning Ember plots (Fig. 6, 7, 8, S11 - S17) and calculate how much earlier tipping happens on average due to carbon TEs
 """
 
 from Code.Read_data.Read_SSP_output import read_SSP_outout, read_probs
@@ -9,8 +9,8 @@ from matplotlib import cm
 import pandas as pd
 
 # %% Read data
-ens_name_tip = '5000_tip_2'
-ens_name_const = '5000_const_2'
+ens_name_tip = 'coupled_ensemble'
+ens_name_const = 'uncoupled_ensemble'
 
 SSP_out_tip = read_SSP_outout(ens_name_tip)
 Probs_tip = read_probs(ens_name_tip)

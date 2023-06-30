@@ -286,15 +286,15 @@ def run_fair_stab_an(ssp, elements, N_sets, N_ens, ens_name, use_TE_model):
     tip_prob_total = tip_prob_total / N_sets
 
     #  save results
-    quant_RF.to_csv('Data/SSP_output/' + ens_name + '/RF.csv')
-    quant_T.to_csv('Data/SSP_output/' + ens_name + '/T.csv')
-    quant_C.to_csv('Data/SSP_output/' + ens_name + '/C.csv')
-    quant_alpha_C.to_csv('Data/SSP_output/' + ens_name + '/alpha_C.csv')
-    quant_alpha_meth.to_csv('Data/SSP_output/' + ens_name + '/alpha_m.csv')
-    tip_prob_total.to_csv('Data/SSP_output/' + ens_name + '/tip_prob_total.csv')
-    Emm_ssp.to_csv('Data/SSP_output/' + ens_name + '/Emm.csv')
-    quant_TE.to_csv('Data/SSP_output/' + ens_name + '/TE.csv')
-    pickle.dump(total_TE, open('Data/SSP_output/' + ens_name + '/TE_total.pkl', 'wb'))
+    quant_RF.to_csv('Data/model_output/' + ens_name + '/RF.csv')
+    quant_T.to_csv('Data/model_output/' + ens_name + '/T.csv')
+    quant_C.to_csv('Data/model_output/' + ens_name + '/C.csv')
+    quant_alpha_C.to_csv('Data/model_output/' + ens_name + '/alpha_C.csv')
+    quant_alpha_meth.to_csv('Data/model_output/' + ens_name + '/alpha_m.csv')
+    tip_prob_total.to_csv('Data/model_output/' + ens_name + '/tip_prob_total.csv')
+    Emm_ssp.to_csv('Data/model_output/' + ens_name + '/Emm.csv')
+    quant_TE.to_csv('Data/model_output/' + ens_name + '/TE.csv')
+    pickle.dump(total_TE, open('Data/model_output/' + ens_name + '/TE_total.pkl', 'wb'))
 
 
 # main
