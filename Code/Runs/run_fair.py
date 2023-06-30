@@ -4,7 +4,7 @@ Script to produce coupled and uncoupled model ensembles
 
 import glob
 from Code.Calibrate.find_distributions import Ts_perf_dists, P_perf_dists, F_beta_dists, K_beta_dists
-from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal
+from Code.FAIR2.fair_runnter_ctem import run_FaIR_ctem
 from Code.Read_data.read_simplified_RCMIP import SSP_emms
 from Code.Read_data.Constants_new import CH4_frac
 from Code.Read_data.Constants_new import r_PFTP, r_AMAZ, r_PFAT
@@ -178,20 +178,20 @@ def run_ssp(ssp, use_TE_model, thermal_set, gas_set, extforc_sfs, TE_params, P_s
     emms = pd.concat([emms] * N_sets, axis=1, keys=extforc_ts.columns.levels[0])
 
     if use_TE_model:
-        result = run_FaIR_intanal(emissions_in=emms,
-                                  forcing_in=extforc_ts,
-                                  gas_parameters=gas_set,
-                                  thermal_parameters=thermal_set,
-                                  show_run_info=False,
-                                  TE_params=TE_params)  # set to false to uncouple CTEM
+        result = run_FaIR_ctem(emissions_in=emms,
+                               forcing_in=extforc_ts,
+                               gas_parameters=gas_set,
+                               thermal_parameters=thermal_set,
+                               show_run_info=False,
+                               TE_params=TE_params)  # set to false to uncouple CTEM
 
     else:
-        result = run_FaIR_intanal(emissions_in=emms,
-                                  forcing_in=extforc_ts,
-                                  gas_parameters=gas_set,
-                                  thermal_parameters=thermal_set,
-                                  show_run_info=False,
-                                  TE_params=False)  # set to false to uncouple CTEM
+        result = run_FaIR_ctem(emissions_in=emms,
+                               forcing_in=extforc_ts,
+                               gas_parameters=gas_set,
+                               thermal_parameters=thermal_set,
+                               show_run_info=False,
+                               TE_params=False)  # set to false to uncouple CTEM
 
     # Calculate anthropogenic RF
     # RF from Land use cange

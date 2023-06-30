@@ -1,0 +1,53 @@
+,native_emms_unit,native_concs_unit,RCMIP_emms_key,RCMIP_emms_unit,RCMIP_emms_scaling,RCMIP_concs_key,RCMIP_concs_unit,RCMIP_concs_scaling
+c2f6,Mt,ppb,Emissions|F-Gases|PFC|C2F6,kt C2F6/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C2F6,ppt,0.001
+c3f8,Mt,ppb,Emissions|F-Gases|PFC|C3F8,kt C3F8/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C3F8,ppt,0.001
+c4f10,Mt,ppb,Emissions|F-Gases|PFC|C4F10,kt C4F10/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C4F10,ppt,0.001
+c5f12,Mt,ppb,Emissions|F-Gases|PFC|C5F12,kt C5F12/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C5F12,ppt,0.001
+c6f14,Mt,ppb,Emissions|F-Gases|PFC|C6F14,kt C6F14/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C6F14,ppt,0.001
+c7f16,Mt,ppb,Emissions|F-Gases|PFC|C7F16,kt C7F16/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C7F16,ppt,0.001
+c8f18,Mt,ppb,Emissions|F-Gases|PFC|C8F18,kt C8F18/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|C8F18,ppt,0.001
+c_c4f8,Mt,ppb,Emissions|F-Gases|PFC|cC4F8,kt cC4F8/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|cC4F8,ppt,0.001
+carbon_dioxide,GtC,ppm,Emissions|CO2,Mt CO2/yr,0.00027266530334015,Atmospheric Concentrations|CO2,ppm,1.0
+carbon_tetrachloride,Mt,ppb,Emissions|Montreal Gases|CCl4,kt CCl4/yr,0.001,Atmospheric Concentrations|Montreal Gases|CCl4,ppt,0.001
+cf4,Mt,ppb,Emissions|F-Gases|PFC|CF4,kt CF4/yr,0.001,Atmospheric Concentrations|F-Gases|PFC|CF4,ppt,0.001
+cfc113,Mt,ppb,Emissions|Montreal Gases|CFC|CFC113,kt CFC113/yr,0.001,Atmospheric Concentrations|Montreal Gases|CFC|CFC113,ppt,0.001
+cfc114,Mt,ppb,Emissions|Montreal Gases|CFC|CFC114,kt CFC114/yr,0.001,Atmospheric Concentrations|Montreal Gases|CFC|CFC114,ppt,0.001
+cfc115,Mt,ppb,Emissions|Montreal Gases|CFC|CFC115,kt CFC115/yr,0.001,Atmospheric Concentrations|Montreal Gases|CFC|CFC115,ppt,0.001
+cfc11,Mt,ppb,Emissions|Montreal Gases|CFC|CFC11,kt CFC11/yr,0.001,Atmospheric Concentrations|Montreal Gases|CFC|CFC11,ppt,0.001
+cfc12,Mt,ppb,Emissions|Montreal Gases|CFC|CFC12,kt CFC12/yr,0.001,Atmospheric Concentrations|Montreal Gases|CFC|CFC12,ppt,0.001
+ch2cl2,Mt,ppb,Emissions|Montreal Gases|CH2Cl2,kt CH2Cl2/yr,0.001,Atmospheric Concentrations|Montreal Gases|CH2Cl2,ppt,0.001
+ch3ccl3,Mt,ppb,Emissions|Montreal Gases|CH3CCl3,kt CH3CCl3/yr,0.001,Atmospheric Concentrations|Montreal Gases|CH3CCl3,ppt,0.001
+chcl3,Mt,ppb,Emissions|Montreal Gases|CHCl3,kt CHCl3/yr,0.001,Atmospheric Concentrations|Montreal Gases|CHCl3,ppt,0.001
+halon1211,Mt,ppb,Emissions|Montreal Gases|Halon1211,kt Halon1211/yr,0.001,Atmospheric Concentrations|Montreal Gases|Halon1211,ppt,0.001
+halon1301,Mt,ppb,Emissions|Montreal Gases|Halon1301,kt Halon1301/yr,0.001,Atmospheric Concentrations|Montreal Gases|Halon1301,ppt,0.001
+halon2402,Mt,ppb,Emissions|Montreal Gases|Halon2402,kt Halon2402/yr,0.001,Atmospheric Concentrations|Montreal Gases|Halon2402,ppt,0.001
+halon1202,Mt,ppb,Emissions|Montreal Gases|Halon1202,kt Halon1202/yr,0.001,Atmospheric Concentrations|Montreal Gases|Halon1202,,0.001
+hcfc141b,Mt,ppb,Emissions|Montreal Gases|HCFC141b,kt HCFC141b/yr,0.001,Atmospheric Concentrations|Montreal Gases|HCFC141b,ppt,0.001
+hcfc142b,Mt,ppb,Emissions|Montreal Gases|HCFC142b,kt HCFC142b/yr,0.001,Atmospheric Concentrations|Montreal Gases|HCFC142b,ppt,0.001
+hcfc22,Mt,ppb,Emissions|Montreal Gases|HCFC22,kt HCFC22/yr,0.001,Atmospheric Concentrations|Montreal Gases|HCFC22,ppt,0.001
+hfc125,Mt,ppb,Emissions|F-Gases|HFC|HFC125,kt HFC125/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC125,ppt,0.001
+hfc134a,Mt,ppb,Emissions|F-Gases|HFC|HFC134a,kt HFC134a/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC134a,ppt,0.001
+hfc143a,Mt,ppb,Emissions|F-Gases|HFC|HFC143a,kt HFC143a/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC143a,ppt,0.001
+hfc152a,Mt,ppb,Emissions|F-Gases|HFC|HFC152a,kt HFC152a/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC152a,ppt,0.001
+hfc227ea,Mt,ppb,Emissions|F-Gases|HFC|HFC227ea,kt HFC227ea/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC227ea,ppt,0.001
+hfc236fa,Mt,ppb,Emissions|F-Gases|HFC|HFC236fa,kt HFC236fa/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC236fa,ppt,0.001
+hfc23,Mt,ppb,Emissions|F-Gases|HFC|HFC23,kt HFC23/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC23,ppt,0.001
+hfc245fa,Mt,ppb,Emissions|F-Gases|HFC|HFC245fa,kt HFC245fa/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC245fa,ppt,0.001
+hfc32,Mt,ppb,Emissions|F-Gases|HFC|HFC32,kt HFC32/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC32,ppt,0.001
+hfc365mfc,Mt,ppb,Emissions|F-Gases|HFC|HFC365mfc,kt HFC365mfc/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC365mfc,ppt,0.001
+hfc4310mee,Mt,ppb,Emissions|F-Gases|HFC|HFC4310mee,kt HFC4310mee/yr,0.001,Atmospheric Concentrations|F-Gases|HFC|HFC4310mee,ppt,0.001
+methane,Mt,ppb,Emissions|CH4,Mt CH4/yr,1.0,Atmospheric Concentrations|CH4,ppb,1.0
+methyl_bromide,Mt,ppb,Emissions|Montreal Gases|CH3Br,kt CH3Br/yr,0.001,Atmospheric Concentrations|Montreal Gases|CH3Br,ppt,0.001
+methyl_chloride,Mt,ppb,Emissions|Montreal Gases|CH3Cl,kt CH3Cl/yr,0.001,Atmospheric Concentrations|Montreal Gases|CH3Cl,ppt,0.001
+nf3,Mt,ppb,Emissions|F-Gases|NF3,kt NF3/yr,0.001,Atmospheric Concentrations|F-Gases|NF3,ppt,0.001
+nitrous_oxide,MtN2O-N2,ppb,Emissions|N2O,kt N2O/yr,0.0006363636363636364,Atmospheric Concentrations|N2O,ppb,1.0
+sf6,Mt,ppb,Emissions|F-Gases|SF6,kt SF6/yr,0.001,Atmospheric Concentrations|F-Gases|SF6,ppt,0.001
+so2f2,Mt,ppb,Emissions|F-Gases|SO2F2,kt SO2F2/yr,0.001,Atmospheric Concentrations|F-Gases|SO2F2,ppt,0.001
+so2,Mt,Mt,Emissions|Sulfur,Mt SO2/yr,1.0,Atmospheric Concentrations|Sulfur,,
+nox,MtNO2,MtNO2,Emissions|NOx,Mt NOx/yr,1.0,Atmospheric Concentrations|NOx,,
+co,Mt,Mt,Emissions|CO,Mt CO/yr,1.0,Atmospheric Concentrations|CO,,
+nmvoc,Mt,Mt,Emissions|VOC,Mt VOC/yr,1.0,Atmospheric Concentrations|VOC,,
+bc,Mt,Mt,Emissions|BC,Mt BC/yr,1.0,Atmospheric Concentrations|BC,,
+nh3,Mt,Mt,Emissions|NH3,Mt NH3/yr,1.0,Atmospheric Concentrations|NH3,,
+oc,Mt,Mt,Emissions|OC,Mt OC/yr,1.0,Atmospheric Concentrations|OC,,
+nox_avi,MtNO2,MtNO2,Emissions|NOx|MAGICC Fossil and Industrial|Aircraft,Mt NOx/yr,1.0,Atmospheric Concentrations|NOx|MAGICC Fossil and Industrial|Aircraft,,

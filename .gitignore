@@ -1,7 +1,5 @@
 ## project specific files and directories:
 .idea/
-Code/FAIR2/fair.egg-info
-Code/FAIR2/fair/util
 Data
 Plots
 venv

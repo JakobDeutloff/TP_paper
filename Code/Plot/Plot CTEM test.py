@@ -7,7 +7,7 @@ from Code.Read_data.read_simplified_RCMIP import *
 import matplotlib.pyplot as plt
 from Code.Calibrate.Functions import *
 from Code.Read_data.Constants_new import *
-from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal, get_gas_parameter_defaults, \
+from Code.FAIR2.fair_runnter_ctem import run_FaIR_ctem, get_gas_parameter_defaults, \
     get_thermal_parameter_defaults
 
 
@@ -174,12 +174,12 @@ def test_K_PFAT(ssp, TE_params_PFAT):
     """
     thermal_params_ens, gas_params_ens, emms, forc = load_forc(ssp)
 
-    result_PFAT = run_FaIR_intanal(emissions_in=emms,
-                                   forcing_in=forc,
-                                   thermal_parameters=thermal_params_ens,
-                                   gas_parameters=gas_params_ens,
-                                   show_run_info=False,
-                                   TE_params=TE_params_PFAT)
+    result_PFAT = run_FaIR_ctem(emissions_in=emms,
+                                forcing_in=forc,
+                                thermal_parameters=thermal_params_ens,
+                                gas_parameters=gas_params_ens,
+                                show_run_info=False,
+                                TE_params=TE_params_PFAT)
 
     # Calculate errors
     error_100, error_300, true_val_100, true_val_300 = calculate_error_K(result_PFAT)
@@ -219,48 +219,48 @@ def test_TS_PFTP_AMAZ(ssp, TE_params_PFTP_min, TE_params_PFTP_mean, TE_params_PF
 
     thermal_params_ens, gas_params_ens, emms, forc = load_forc(ssp)
     # PFTP
-    result_PFTP_min = run_FaIR_intanal(emissions_in=emms,
-                                       forcing_in=forc,
-                                       thermal_parameters=thermal_params_ens,
-                                       gas_parameters=gas_params_ens,
-                                       show_run_info=False,
-                                       TE_params=TE_params_PFTP_min)
+    result_PFTP_min = run_FaIR_ctem(emissions_in=emms,
+                                    forcing_in=forc,
+                                    thermal_parameters=thermal_params_ens,
+                                    gas_parameters=gas_params_ens,
+                                    show_run_info=False,
+                                    TE_params=TE_params_PFTP_min)
 
-    result_PFTP_mean = run_FaIR_intanal(emissions_in=emms,
-                                        forcing_in=forc,
-                                        thermal_parameters=thermal_params_ens,
-                                        gas_parameters=gas_params_ens,
-                                        show_run_info=False,
-                                        TE_params=TE_params_PFTP_mean)
+    result_PFTP_mean = run_FaIR_ctem(emissions_in=emms,
+                                     forcing_in=forc,
+                                     thermal_parameters=thermal_params_ens,
+                                     gas_parameters=gas_params_ens,
+                                     show_run_info=False,
+                                     TE_params=TE_params_PFTP_mean)
 
-    result_PFTP_max = run_FaIR_intanal(emissions_in=emms,
-                                       forcing_in=forc,
-                                       thermal_parameters=thermal_params_ens,
-                                       gas_parameters=gas_params_ens,
-                                       show_run_info=False,
-                                       TE_params=TE_params_PFTP_max)
+    result_PFTP_max = run_FaIR_ctem(emissions_in=emms,
+                                    forcing_in=forc,
+                                    thermal_parameters=thermal_params_ens,
+                                    gas_parameters=gas_params_ens,
+                                    show_run_info=False,
+                                    TE_params=TE_params_PFTP_max)
 
     # AMAZ
-    result_AMAZ_min = run_FaIR_intanal(emissions_in=emms,
-                                       forcing_in=forc,
-                                       thermal_parameters=thermal_params_ens,
-                                       gas_parameters=gas_params_ens,
-                                       show_run_info=False,
-                                       TE_params=TE_params_AMAZ_min)
+    result_AMAZ_min = run_FaIR_ctem(emissions_in=emms,
+                                    forcing_in=forc,
+                                    thermal_parameters=thermal_params_ens,
+                                    gas_parameters=gas_params_ens,
+                                    show_run_info=False,
+                                    TE_params=TE_params_AMAZ_min)
 
-    result_AMAZ_mean = run_FaIR_intanal(emissions_in=emms,
-                                        forcing_in=forc,
-                                        thermal_parameters=thermal_params_ens,
-                                        gas_parameters=gas_params_ens,
-                                        show_run_info=False,
-                                        TE_params=TE_params_AMAZ_mean)
+    result_AMAZ_mean = run_FaIR_ctem(emissions_in=emms,
+                                     forcing_in=forc,
+                                     thermal_parameters=thermal_params_ens,
+                                     gas_parameters=gas_params_ens,
+                                     show_run_info=False,
+                                     TE_params=TE_params_AMAZ_mean)
 
-    result_AMAZ_max = run_FaIR_intanal(emissions_in=emms,
-                                       forcing_in=forc,
-                                       thermal_parameters=thermal_params_ens,
-                                       gas_parameters=gas_params_ens,
-                                       show_run_info=False,
-                                       TE_params=TE_params_AMAZ_max)
+    result_AMAZ_max = run_FaIR_ctem(emissions_in=emms,
+                                    forcing_in=forc,
+                                    thermal_parameters=thermal_params_ens,
+                                    gas_parameters=gas_params_ens,
+                                    show_run_info=False,
+                                    TE_params=TE_params_AMAZ_max)
 
     # calculate errors
     errors_PFTP_min = calculate_errors(result_PFTP_min, 'PFTP', Ts_PFTP[0])

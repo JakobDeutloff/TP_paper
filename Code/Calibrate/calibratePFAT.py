@@ -3,8 +3,7 @@ Script to calibrate the mean r for PFAT
 """
 import numpy as np
 from Code.Read_data.read_simplified_RCMIP import *
-from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal
-import matplotlib.pyplot as plt
+from Code.FAIR2.fair_runnter_ctem import run_FaIR_ctem
 from Code.Read_data.Constants_new import *
 from scipy.optimize import minimize
 from Code.Calibrate.Functions import *
@@ -15,10 +14,10 @@ from Code.Calibrate.Functions import *
 # Objective Function
 def calibrate(rate, Ts_goal):
     TE_params['R'][0][2] = rate
-    result = run_FaIR_intanal(emissions_in=emms,
-                              forcing_in=forc,
-                              show_run_info=False,
-                              TE_params=TE_params)
+    result = run_FaIR_ctem(emissions_in=emms,
+                           forcing_in=forc,
+                           show_run_info=False,
+                           TE_params=TE_params)
 
     trg_year = find_trg_year(result['tipping_elements'].xs(('PFAT', 'bool_tip'), level=(1, 2), axis=1))
     thr_year = find_threshold(result['tipping_elements'].xs(('PFAT', 'C_stock'), level=(1, 2), axis=1), 0.995)

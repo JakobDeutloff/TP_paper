@@ -2,7 +2,7 @@
 Write out SSP scenario emmissions and forcings to save memory when reading the files
 """
 
-from Code.FAIR2.fair.scripts.data_retrieval import *
+from Code.FAIR2.data_retrieval import *
 import os
 
 os.chdir(r'C:\Users\jakob\OneDrive\Dokumente\Dokumente Uni\Master\4.Semester\Research Project\ModelFramework')

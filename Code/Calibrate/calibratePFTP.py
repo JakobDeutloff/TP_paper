@@ -3,7 +3,7 @@ Script to calibrate r for PFTP
 """
 import numpy as np
 from Code.Read_data.read_simplified_RCMIP import *
-from Code.FAIR2.fair.fair_runnter_ctem import run_FaIR_intanal
+from Code.FAIR2.fair_runnter_ctem import run_FaIR_ctem
 import matplotlib.pyplot as plt
 from Code.Read_data.Constants_new import *
 from scipy.optimize import minimize
@@ -15,10 +15,10 @@ from Code.Calibrate.Functions import *
 # Objective Function
 def calibrate(rate, Ts_goal):
     TE_params['R'][0] = rate
-    result = run_FaIR_intanal(emissions_in=emms,
-                              forcing_in=forc,
-                              show_run_info=False,
-                              TE_params=TE_params)
+    result = run_FaIR_ctem(emissions_in=emms,
+                           forcing_in=forc,
+                           show_run_info=False,
+                           TE_params=TE_params)
 
     trg_year = find_trg_year(result['tipping_elements'].xs(('PFTP', 'bool_tip'), level=(1, 2), axis=1))
     thr_year = find_threshold(result['tipping_elements'].xs(('PFTP', 'C_stock'), level=(1, 2), axis=1), 0.995)
@@ -85,22 +85,22 @@ par_max = minimize(calibrate, x0=np.array([8.5 / Ts_max['PFTP']]), method='Nelde
 # %% Plot the results for min, max and mean to check if correct
 
 TE_params['R'][0][0] = par_max.x[0]
-result_max = run_FaIR_intanal(emissions_in=emms,
-                              forcing_in=forc,
-                              show_run_info=False,
-                              TE_params=TE_params)
+result_max = run_FaIR_ctem(emissions_in=emms,
+                           forcing_in=forc,
+                           show_run_info=False,
+                           TE_params=TE_params)
 
 TE_params['R'][0][0] = par_mean.x[0]
-result_mean = run_FaIR_intanal(emissions_in=emms,
-                               forcing_in=forc,
-                               show_run_info=False,
-                               TE_params=TE_params)
+result_mean = run_FaIR_ctem(emissions_in=emms,
+                            forcing_in=forc,
+                            show_run_info=False,
+                            TE_params=TE_params)
 
 TE_params['R'][0][0] = par_min.x[0]
-result_min = run_FaIR_intanal(emissions_in=emms,
-                              forcing_in=forc,
-                              show_run_info=False,
-                              TE_params=TE_params)
+result_min = run_FaIR_ctem(emissions_in=emms,
+                           forcing_in=forc,
+                           show_run_info=False,
+                           TE_params=TE_params)
 
 fig, axes = plt.subplots(3, 1, sharex='col')
 

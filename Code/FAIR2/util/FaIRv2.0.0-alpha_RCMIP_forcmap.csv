@@ -1,0 +1,64 @@
+,RCMIP_forc_key
+c2f6,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C2F6
+c3f8,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C3F8
+c4f10,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C4F10
+c5f12,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C5F12
+c6f14,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C6F14
+c7f16,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C7F16
+c8f18,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|C8F18
+c_c4f8,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|cC4F8
+carbon_dioxide,Effective Radiative Forcing|Anthropogenic|CO2
+carbon_tetrachloride,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CCl4
+cf4,Effective Radiative Forcing|Anthropogenic|F-Gases|PFC|CF4
+cfc113,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CFC|CFC113
+cfc114,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CFC|CFC114
+cfc115,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CFC|CFC115
+cfc11,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CFC|CFC11
+cfc12,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CFC|CFC12
+ch2cl2,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CH2Cl2
+ch3ccl3,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CH3CCl3
+chcl3,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CHCl3
+halon1211,Effective Radiative Forcing|Anthropogenic|Montreal Gases|Halon1211
+halon1301,Effective Radiative Forcing|Anthropogenic|Montreal Gases|Halon1301
+halon2402,Effective Radiative Forcing|Anthropogenic|Montreal Gases|Halon2402
+halon1202,Effective Radiative Forcing|Anthropogenic|Montreal Gases|Halon1202
+hcfc141b,Effective Radiative Forcing|Anthropogenic|Montreal Gases|HCFC141b
+hcfc142b,Effective Radiative Forcing|Anthropogenic|Montreal Gases|HCFC142b
+hcfc22,Effective Radiative Forcing|Anthropogenic|Montreal Gases|HCFC22
+hfc125,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC125
+hfc134a,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC134a
+hfc143a,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC143a
+hfc152a,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC152a
+hfc227ea,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC227ea
+hfc236fa,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC236fa
+hfc23,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC23
+hfc245fa,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC245fa
+hfc32,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC32
+hfc365mfc,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC365mfc
+hfc4310mee,Effective Radiative Forcing|Anthropogenic|F-Gases|HFC|HFC4310mee
+methane,Effective Radiative Forcing|Anthropogenic|CH4
+methyl_bromide,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CH3Br
+methyl_chloride,Effective Radiative Forcing|Anthropogenic|Montreal Gases|CH3Cl
+nf3,Effective Radiative Forcing|Anthropogenic|F-Gases|NF3
+nitrous_oxide,Effective Radiative Forcing|Anthropogenic|N2O
+sf6,Effective Radiative Forcing|Anthropogenic|F-Gases|SF6
+so2f2,Effective Radiative Forcing|Anthropogenic|F-Gases|SO2F2
+so2,Effective Radiative Forcing|Anthropogenic|Aerosols|Aerosols-radiation Interactions|Fossil and Industrial|Sulfate
+nox,Effective Radiative Forcing|Anthropogenic|NOx
+co,Effective Radiative Forcing|Anthropogenic|CO
+nmvoc,Effective Radiative Forcing|Anthropogenic|VOC
+bc,Effective Radiative Forcing|Anthropogenic|Aerosols|Aerosols-radiation Interactions|Fossil and Industrial|BC and OC|BC
+nh3,Effective Radiative Forcing|Anthropogenic|Aerosols|Aerosols-radiation Interactions|NH3|Fossil and Industrial
+oc,Effective Radiative Forcing|Anthropogenic|Aerosols|Aerosols-radiation Interactions|Fossil and Industrial|BC and OC|OC
+nox_avi,Effective Radiative Forcing|Anthropogenic|NOx|MAGICC Fossil and Industrial|Aircraft
+aci,Effective Radiative Forcing|Anthropogenic|Aerosols|Aerosols-cloud Interactions
+ari,Effective Radiative Forcing|Anthropogenic|Aerosols|Aerosols-radiation Interactions
+trop_o3,Effective Radiative Forcing|Anthropogenic|Tropospheric Ozone
+strat_o3,Effective Radiative Forcing|Anthropogenic|Stratospheric Ozone
+bc_on_snow,Effective Radiative Forcing|Anthropogenic|Other|BC on Snow
+strat_h2o,Effective Radiative Forcing|Anthropogenic|Other|CH4 Oxidation Stratospheric H2O
+contrails,Effective Radiative Forcing|Anthropogenic|Other|Contrails and Contrail-induced Cirrus
+Total,Effective Radiative Forcing
+f_gases,Effective Radiative Forcing|Anthropogenic|F-Gases
+montreal_gases,Effective Radiative Forcing|Anthropogenic|Montreal Gases
+External,Effective Radiative Forcing|External

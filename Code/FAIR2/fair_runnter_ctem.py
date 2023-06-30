@@ -1,6 +1,7 @@
 # An adapted version of FaIR deveolped by Jakob Deutloff which allows for the coupling to CTEM
 # as described in Deutloff et al. (2023). The code is largely based on the version of FaIR developed by
-# Nick Leach & Stuart Jenkins (2021). The original version of FaIR is given in fair_runner.py.
+# Nick Leach & Stuart Jenkins (2021). The original version of FaIR can be found under
+# https://github.com/njleach/FAIR/tree/1945d44c7bcf237307264f8a687f65a70ed0e34f
 # distributed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 
 ## import required dependencies ##
@@ -278,15 +279,15 @@ def TE_model(S, P, K, R, T, dt):
 ## begin model function ##
 
 
-def run_FaIR_intanal(emissions_in=False,
-                     forcing_in=False,
-                     gas_parameters=get_gas_parameter_defaults(),
-                     thermal_parameters=get_thermal_parameter_defaults(),
-                     show_run_info=True,
-                     const_alpha=False,
-                     start_tip_model=1910,
-                     TE_params=False
-                     ):
+def run_FaIR_ctem(emissions_in=False,
+                  forcing_in=False,
+                  gas_parameters=get_gas_parameter_defaults(),
+                  thermal_parameters=get_thermal_parameter_defaults(),
+                  show_run_info=True,
+                  const_alpha=False,
+                  start_tip_model=1910,
+                  TE_params=False
+                  ):
     """
     Runs the development version of the FaIRv2.0 model.
 
