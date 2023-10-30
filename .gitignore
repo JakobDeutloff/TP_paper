@@ -3,3 +3,5 @@
 Data
 Plots
 venv
+.vscode/
+*.pyc 

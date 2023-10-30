@@ -449,12 +449,16 @@ def run_FaIR_ctem(emissions_in=False,
     # Timestepping
     for t in tqdm(np.arange(1, n_year), unit=' timestep'):
 
+        if time_index[t] == 1901:
+            # Calculate pre-industrial temperature
+            temp_1850_1900 = T[..., 100:150].mean(axis=3).squeeze(axis=2)
+
         if TE_params:
             # Calculate emissions from tipping points
             if time_index[t] >= start_tip_model:
 
                 # check if thresholds are crossed
-                bool_new = TE_params['P'] <= T[..., t - 1].squeeze(axis=2)
+                bool_new = TE_params['P'] <= T[..., t - 1].squeeze(axis=2) - temp_1850_1900
                 # update memebers with crossed thresholds to true - can't be reversed
                 bool[bool_new, t:] = True
                 # set K to given impact if tipped for PFTP and AMAZ
@@ -526,7 +530,9 @@ def run_FaIR_ctem(emissions_in=False,
                           columns=pd.MultiIndex.from_product(
                               [x + ['External', 'Total'] * (x == forc_names_list[-1]) for x in forc_names_list],
                               names=forc_names_titles))
-    T_out = pd.DataFrame(np.moveaxis(T, -1, 0).reshape(T.shape[-1], -1), index=time_index,
+    temp = np.moveaxis(T, -1, 0).reshape(T.shape[-1], -1)
+    temp_pid = temp[100:150, ...].mean(axis=0)
+    T_out = pd.DataFrame(temp - temp_pid, index=time_index,
                          columns=pd.MultiIndex.from_product(names_list[:-1], names=names_titles[:-1]))
 
     if TE_params:

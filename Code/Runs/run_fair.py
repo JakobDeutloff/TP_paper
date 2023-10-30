@@ -4,7 +4,7 @@ Script to produce coupled and uncoupled model ensembles
 
 import glob
 from Code.Calibrate.find_distributions import Ts_perf_dists, P_perf_dists, F_beta_dists, K_beta_dists
-from Code.FAIR2.fair_runnter_ctem import run_FaIR_ctem
+from Code.FaIR.fair_runnter_ctem import run_FaIR_ctem
 from Code.Read_data.read_simplified_RCMIP import SSP_emms
 from Code.Read_data.Constants_new import CH4_frac
 from Code.Read_data.Constants_new import r_PFTP, r_AMAZ, r_PFAT
@@ -18,7 +18,7 @@ import pickle
 
 def load_fair_params(N_sets, from_source, ens_name):
     # Load the categories of the radiative forcing agents that are used later to group radiative forcings
-    param_categories = pd.read_csv(r'C:\Users\jakob\3D Objects\util_data\FaIRv2.0.0-alpha_RF_categories.csv',
+    param_categories = pd.read_csv(r'Data/FaIRv2.0.0-alpha_RF_categories.csv',
                                    index_col=0,
                                    skiprows=1, names=['source', 'category'])
     param_categories.loc['Total'] = 'Total'
@@ -212,7 +212,7 @@ def run_ssp(ssp, use_TE_model, thermal_set, gas_set, extforc_sfs, TE_params, P_s
     rf = rf.stack().unstack(level=1).quantile([0.05, 0.166, 0.5, 0.833, 0.95], axis=1).stack().swaplevel(0, 1) \
         .sort_index().T
 
-    T = (result['T'] - result['T'].loc[1850:1900].mean()).quantile([0.05, 0.166, 0.5, 0.833, 0.95], axis=1).T
+    T = result['T'].quantile([0.05, 0.166, 0.5, 0.833, 0.95], axis=1).T
 
     C = result['C'].groupby(level=[1], axis=1).quantile([0.05, 0.166, 0.5, 0.833, 0.95])
 
@@ -342,13 +342,13 @@ def main():
     from_source = True
 
     # Set Ens name - also used to load and save parameters
-    ens_name = 'coupled_ensemble'
+    ens_name = 'uncoupled_ensemble'
 
     # If TE model should be coupled
     use_TE_model = True
 
     # Choose SSPs
-    choose_ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp534-over', 'ssp585']
+    choose_ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']
 
     # Choose elements for probabilities
     elements = ['PFTP', 'AMOC', 'GRIS', 'WAIS', 'AMAZ', 'BORF', 'AWSI', 'EAIS', 'EASB', 'GLCR', 'LABC', 'TUND', 'PFAT',
