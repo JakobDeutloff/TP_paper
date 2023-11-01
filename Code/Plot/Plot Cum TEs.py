@@ -1,14 +1,14 @@
 """
 Plot the cumulative number of TEs crossing a certain percentile of tipping probability (Fig. 5)
 """
-
+# %%
 from Code.Read_data.Read_SSP_output import read_probs
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib as mpl
 import matplotlib.path as mpath
 
-mpl.use('Qt5Agg')
+#mpl.use('Qt5Agg')
 
 # %%  load data
 P_tip = read_probs(ens_name='coupled_ensemble')
@@ -33,7 +33,7 @@ def find_y(years, year, tol, dy):
 perc = 0.5
 
 years_tip = P_tip['Years'].loc[perc]
-ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
 elements = ['GRIS', 'WAIS', 'EASB', 'AWSI', 'EAIS', 'BARI', 'GLCR',
             'REEF', 'SAHL', 'BORF', 'TUND',
             'LABC', 'AMOC',
@@ -63,7 +63,7 @@ colors_ssp = {'ssp119': '#03a9d0', 'ssp126': '#193764', 'ssp245': '#f79521', 'ss
 
 # Set y and difference dy between two elements tipping within year +-tol
 y = np.linspace(0, 1, len(ssps))
-tol = 5
+tol = 3
 dy = (y[1] - y[0]) / 8
 
 # Plot
@@ -93,7 +93,7 @@ for i in range(len(ssps)):
 
         # calculate y position of marker
         year = years_tip[ssps[i]][elem]
-        dif_y = find_y(years, year, tol, dy)
+        dif_y = find_y(years, year, tol, dy+0.01)
         years.append(year)
 
         # write labels only for ssp585
@@ -106,9 +106,7 @@ for i in range(len(ssps)):
                     ax.plot(year, y[i] + dif_y, marker=markers[elem], color=color, alpha=0.5, linestyle='')
             else:
                 axes[1, 0].plot(year, y[i] + dif_y, marker=markers[elem], color=color, alpha=0.5, linestyle='')
-                if elem == 'AMAZ' and ssps[i] == 'ssp245':
-                    pass
-                else: axes[1, 1].plot(year, y[i] + dif_y, marker=markers[elem], color=color, alpha=0.5, linestyle='')
+                axes[1, 1].plot(year, y[i] + dif_y, marker=markers[elem], color=color, alpha=0.5, linestyle='')
 
 # Set y ticks and grid of element plots
 yticks = y - 2 * dy
@@ -165,5 +163,7 @@ labels.append(lb[1])
 
 fig.subplots_adjust(bottom=0.17)
 fig.legend(handles, labels, bbox_to_anchor=(0.93, 0.1), ncol=6)
-fig.savefig('Plots/Comparison/5000_tip_2_5000_const_2/Cum_TEs/perc' + str(perc) + '_cum_TEs.png', dpi=300,
+fig.savefig('Plots/Cum_TEs/' + str(perc) + '_cum_TEs.png', dpi=300,
             bbox_inches='tight')
+
+# %%

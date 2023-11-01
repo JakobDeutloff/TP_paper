@@ -1,7 +1,7 @@
 """
 This Script is used to calculate theyear where vertain percentiles of tipping probabilit are exceeded,
 """
-
+# %%
 from Code.Calibrate.find_distributions import P_perf_dists
 from Code.Read_data.Read_SSP_output import read_SSP_outout
 import pandas as pd
@@ -10,7 +10,7 @@ import numpy as np
 # %% Load data
 
 #  Set ens name
-ens_name = 'coupled_ensemble'
+ens_name = 'uncoupled_ensemble'
 SSP_out = read_SSP_outout(ens_name)
 
 # %% Build tipping probs dataframes

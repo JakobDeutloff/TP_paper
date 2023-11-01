@@ -345,7 +345,7 @@ def main():
     ens_name = 'uncoupled_ensemble'
 
     # If TE model should be coupled
-    use_TE_model = True
+    use_TE_model = False
 
     # Choose SSPs
     choose_ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']

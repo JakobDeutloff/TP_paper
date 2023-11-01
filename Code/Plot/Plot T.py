@@ -1,6 +1,7 @@
 """
 Plot temperature from the coupled and the uncoupled ensemble (Fig. 4)
 """
+# %%
 import matplotlib.pyplot as plt
 from Code.Read_data.Read_SSP_output import read_SSP_outout, read_rand_mems, read_TE_output
 import numpy as np
@@ -37,26 +38,24 @@ def plot_T(ssp, ax):
 
 
 # %% Plot T comparison
-mpl.use('Qt5Agg')
-ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
-fig, axes = plt.subplots(2, 3, figsize=(11, 7), sharex='col')
-for i in range(5):
-    plot_T(ssps[i], axes.flatten()[i])
+# mpl.use('Qt5Agg')
+ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
+fig, axes = plt.subplots(1, 4, figsize=(13, 4), sharex='col', sharey='row')
+for i in range(4):
+    plot_T(ssps[i], axes[i])
 
-axes[1, 2].remove()
-axes[0, 2].tick_params(labelbottom=True)
-axes[0, 0].set_ylabel('GMST anomaly [°C]')
-axes[1, 0].set_ylabel('GMST anomaly [°C]')
-axes[1, 0].set_xlabel('Year')
-axes[1, 1].set_xlabel('Year')
-axes[0, 2].set_xlabel('Year')
+axes[0].set_ylabel('GMST anomaly [°C]')
+for ax in axes:
+    ax.set_xlabel('Year')
 
-handles, labels = axes[1, 1].get_legend_handles_labels()
-fig.legend(handles, labels, ncol=1, bbox_to_anchor=(0.97, 0.47))
-fig.tight_layout()
-fig.savefig('Plots/Comparison/5000_tip_2_5000_const_2/Temp/Tier1_temp.png', dpi=300)
+# make legend at the bottom of the figure
+handles, labels = axes[1].get_legend_handles_labels()
+fig.legend(handles, labels, ncol=3, bbox_to_anchor=(0.825, 0))
+fig.savefig('Plots/Temp/Tier1_temp.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 
 
 
+
+# %%

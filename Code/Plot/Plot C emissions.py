@@ -2,12 +2,13 @@
 Calculate carbon emissions from CO2 and CH4 emissions, plot carbon emissions (Fig. 3, Fig. S9),
 plot atmospheric concentrations of CO2 and CH4 (Fig. S10), calculate emission shares used in the text.
 """
-
+# %%
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 from Code.Read_data.Read_SSP_output import read_SSP_outout, read_TE_output
 import pandas as pd
 import numpy as np
+# mpl.use('Qt5Agg')  # Use interactive plotting interface
 
 
 # %%
@@ -31,7 +32,7 @@ TEs = read_TE_output('coupled_ensemble')
 # %% Calculate carbon emissions
 
 # Only look at tier 1 SSPs
-ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
 elems = ['AMAZ', 'PFTP', 'PFAT']
 percentiles = ['0.05', '0.5', '0.95']
 
@@ -50,7 +51,7 @@ cum_emm_tip.loc[:, :] = 0
 
 # Calculate emissions
 
-for i in range(5):
+for i in range(4):
 
     # Uncoupled
     emm_const.loc[:, (ssps[i], 'CO2')] = const['Emm'].loc[:, (ssps[i], 'carbon_dioxide')]
@@ -67,26 +68,14 @@ for i in range(5):
             cum_emm_tip.loc[:, (ssps[i], perc)] += TEs['TE'].loc[:, (ssps[i], elem, 'C_stock', perc)]
 
 # %% Plot C emissions together with SSP emissions
-mpl.use('Qt5Agg')  # Use interactive plotting interface
-fig, axes = plt.subplots(2, 5, figsize=(13, 7), sharex='col')
+fig, axes = plt.subplots(1, 4, figsize=(13, 4), sharex='col', sharey='row')
 start = 2000
 end = 2500
-ssps_plot = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps_plot = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
 
-for i in range(5):
-    # Plot C Emissions
-    ax = axes[0, i]
-    # Uncoupled
-    ax.plot(emm_const.loc[start:end, ssps_plot[i]].sum(axis=1), color='k', linestyle='--')
-    # Coupled
-    ax.plot(emm_tip.loc[start:end, (ssps_plot[i], '0.5')].sum(axis=1), color='red')
-    ax.fill_between(emm_tip.loc[start:end].index, emm_tip.loc[start:end, (ssps_plot[i], '0.05')].sum(axis=1),
-                    emm_tip.loc[start:end, (ssps_plot[i], '0.95')].sum(axis=1), color='red', alpha=0.5, linestyle='-')
-
-    ax.set_title(ssps[i])
-
+for i in range(4):
     # Plot Cumulative C Emissions
-    ax = axes[1, i]
+    ax = axes[i]
     # Uncoupled
     ax.plot(emm_const.loc[start:end, ssps_plot[i]].sum(axis=1).cumsum(), color='k', linestyle='--',
             label='SSP Emissions')
@@ -98,61 +87,24 @@ for i in range(5):
                     color='red', alpha=0.5, linestyle='-', label='5th to 95th percentile of CTEM Emissions')
     ax.set_xlabel('Year')
     ax.ticklabel_format(axis="y", style="sci", scilimits=(0, 0))
+    ax.set_title(ssps_plot[i])
 
-axes[0, 0].set_ylabel(r'C Emissions [$\mathrm{GtC ~ yr^{-1}}$]')
-axes[1, 0].set_ylabel('Cumulative C Emissions [GtC]')
+axes[0].set_ylabel('Cumulative C Emissions [GtC]')
 
 # Legend
-handles, labels = axes[1, 1].get_legend_handles_labels()
+handles, labels = axes[1].get_legend_handles_labels()
 # fig.subplots_adjust(bottom=0.2)
 plt.legend(handles, labels, ncol=3, bbox_to_anchor=(0.2, -0.15))
-plt.savefig('Plots/Comparison/5000_tip_2_5000_const_2/C_emissions/C_emm_ssps.png', dpi=300, bbox_inches='tight')
+plt.savefig('Plots/Carbon_emms/C_emm_ssps.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-# %% Plot C emissions without SSP emissions
-fig, axes = plt.subplots(2, 5, figsize=(13, 7), sharex='col', sharey='row')
-start = 2000
-end = 2500
-ssps_plot = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
-
-for i in range(5):
-    # Plot C Emissions
-    ax = axes[0, i]
-    # Coupled
-    ax.plot(emm_tip.loc[start:end, (ssps_plot[i], '0.5')].sum(axis=1), color='red')
-    ax.fill_between(emm_tip.loc[start:end].index, emm_tip.loc[start:end, (ssps_plot[i], '0.05')].sum(axis=1),
-                    emm_tip.loc[start:end, (ssps_plot[i], '0.95')].sum(axis=1), color='red', alpha=0.5, linestyle='-')
-
-    ax.set_title(ssps[i])
-
-    # Plot Cumulative C Emissions
-    ax = axes[1, i]
-    # Coupled
-    ax.plot(cum_emm_tip.loc[start:end, (ssps_plot[i], '0.5')], color='red', label='Median CTEM Emissions')
-    ax.fill_between(cum_emm_tip.loc[start:end].index,
-                    cum_emm_tip.loc[start:end, (ssps_plot[i], '0.05')].astype('float'),
-                    cum_emm_tip.loc[start:end, (ssps_plot[i], '0.95')].astype('float'),
-                    color='red', alpha=0.5, linestyle='-', label='5th to 95th Percentile of CTEM Emissions')
-    ax.set_xlabel('Year')
-    ax.ticklabel_format(axis="y", style="sci", scilimits=(0, 0))
-
-axes[0, 0].set_ylabel(r'C Emissions [$\mathrm{GtC ~ yr^{-1}}$]')
-axes[1, 0].set_ylabel('Cumulative C Emissions [GtC]')
-
-# Legend
-handles, labels = axes[1, 1].get_legend_handles_labels()
-fig.subplots_adjust(bottom=0.2)
-fig.legend(handles, labels, ncol=3, bbox_to_anchor=(0.74, 0.12))
-plt.savefig('Plots/Comparison/5000_tip_2_5000_const_2/C_emissions/C_emm_CTEM_only.png', dpi=300, bbox_inches='tight')
-plt.show()
 
 # %% Plot CO2 and CH4 concentrations
-mpl.use('Qt5Agg')
-fig, axes = plt.subplots(2, 5, figsize=(13, 7), sharex='col')
+fig, axes = plt.subplots(2, 4, figsize=(13, 7), sharex='col')
 start = 2000
 end = 2500
-ssps_plot = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
-for i in range(5):
+ssps_plot = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
+for i in range(4):
     # Plot CO2 anomaly
     ax = axes[0, i]
     CO2_05_c = const['C'].loc[start:end, (ssps_plot[i], 'carbon_dioxide', '0.05')]
@@ -190,46 +142,16 @@ for i in range(5):
 handles, labels = axes[0, 0].get_legend_handles_labels()
 plt.legend(handles, labels, ncol=4, bbox_to_anchor=(0.8, -0.19))
 
-axes[0, 1].set_yticks(np.array([3.5, 4, 4.5, 5]) * 1e2)
 axes[0, 0].set_ylabel(r'$\mathrm{CO_2}$ Concentration [ppm]')
 axes[1, 0].set_ylabel(r'$\mathrm{CH_4}$ Concentration [ppb]')
 
-# Fix yticks
-axes[1, 2].set_yticks(np.array([1, 1.5, 2, 2.5]) * 1e3)
-fig.savefig('Plots/Comparison/5000_tip_2_5000_const_2/C_emissions/concentrations.png', dpi=300, bbox_inches='tight')
+fig.savefig('Plots/Carbon_emms/concentrations.png', dpi=300, bbox_inches='tight')
 fig.show()
 
-# %% Analyse values --------------------------------------------------------------------------------------------------
-
-# Share of emissions
-max = emm_tip.loc[:, ('ssp119', '0.95')].sum(axis=1).max()
-share = max / emm_const.loc[:, ('ssp119')].sum(axis=1).max()
-print('share: ' + str(share) + ', max: ' + str(max))
-
-max = emm_tip.loc[:, ('ssp126', '0.95')].sum(axis=1).max()
-share = max / emm_const.loc[:, ('ssp126')].sum(axis=1).max()
-print('share: ' + str(share) + ', max: ' + str(max))
-
-max = emm_tip.loc[:, ('ssp245', '0.95')].sum(axis=1).max()
-share = max / emm_const.loc[:, ('ssp245')].sum(axis=1).max()
-print('share: ' + str(share) + ', max: ' + str(max))
-
-max = emm_tip.loc[:, ('ssp370', '0.95')].sum(axis=1).max()
-share = max / emm_const.loc[:, ('ssp370')].sum(axis=1).max()
-print('share: ' + str(share) + ', max: ' + str(max))
-
-max = emm_tip.loc[:, ('ssp585', '0.95')].sum(axis=1).max()
-share = max / emm_const.loc[:, ('ssp585')].sum(axis=1).max()
-print('share: ' + str(share) + ', max: ' + str(max))
 
 # %% Share of Cumulative Emissions
 start = 2000
 end = 2500
-
-max = cum_emm_tip.loc[:, ('ssp119', '0.95')].max()
-const = emm_const.loc[start:end, ('ssp119')].sum(axis=1).cumsum().iloc[-1]
-share = max / const
-print('share: ' + str(share) + ', max: ' + str(max))
 
 max = cum_emm_tip.loc[:, ('ssp126', '0.95')].max()
 const = emm_const.loc[start:end, ('ssp126')].sum(axis=1).cumsum().iloc[-1]
@@ -252,4 +174,4 @@ share = max / const
 print('share: ' + str(share) + ', max: ' + str(max))
 
 
-
+# %%

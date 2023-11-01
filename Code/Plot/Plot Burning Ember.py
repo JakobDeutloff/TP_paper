@@ -2,6 +2,7 @@
 Create Burning Ember plots (Fig. 6, 7, 8, S11 - S17) and calculate how much earlier tipping happens on average due to carbon TEs
 """
 
+# %%
 from Code.Read_data.Read_SSP_output import read_SSP_outout, read_probs
 import matplotlib.pyplot as plt
 import numpy as np
@@ -119,7 +120,7 @@ def plot_burning_emeber(ssp, max_year=2500):
 for ssp in Probs_const['Years'].columns.levels[0]:
     plot_burning_emeber(ssp, 2200)
     plt.tight_layout()
-    plt.savefig('Plots/Comparison/5000_tip_2_5000_const_2/BurningEmber200/' + ssp + '200.png', dpi=300)
+    plt.savefig('Plots/Burning_ember_2500/' + ssp + '200.png', dpi=300)
 
 # %% calculate total increase in probability of tippig for each SSP
 elems = list(Probs_const['Years'].columns.levels[1])
@@ -164,3 +165,5 @@ for ssp in Probs_const['Years'].columns.levels[0]:
 
 print('Mean Diff [years] at 50%: ' + str(np.nanmean(list(Y_diff_5.values()))))
 print('Mean Diff [years] at 95%: ' + str(np.nanmean(list(Y_diff_95.values()))))
+
+# %%

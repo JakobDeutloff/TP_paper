@@ -19,7 +19,7 @@ def read_SSP_outout(ens_name):
     alpha_m.columns.names = ['scenario', 'percentile']
     Emm = pd.read_csv('Data/model_output/' + ens_name + '/Emm.csv', index_col=0, parse_dates=[0], header=[0, 1])
     Emm.columns.names = ['scenario', 'variable']
-    if np.isnan(Emm['ssp119']['bc'].iloc[1]):  # Emm output is different for coupled runs as percentiles are calculated
+    if np.isnan(Emm['ssp126']['bc'].iloc[1]):  # Emm output is different for coupled runs as percentiles are calculated
         Emm = pd.read_csv('Data/model_output/' + ens_name + '/Emm.csv', index_col=0, parse_dates=[0], header=[0, 1, 2])
         Emm.columns.names = ['scenario', 'variable', 'percentile']
     tip_probs_total = pd.read_csv('Data/model_output/' + ens_name + '/tip_prob_total.csv', index_col=0, parse_dates=[0],
