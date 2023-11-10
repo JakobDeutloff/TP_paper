@@ -118,9 +118,9 @@ def plot_burning_emeber(ssp, max_year=2500):
 # %% Plot Burning Embers diagramm
 
 for ssp in Probs_const['Years'].columns.levels[0]:
-    plot_burning_emeber(ssp, 2200)
+    plot_burning_emeber(ssp, 2500)
     plt.tight_layout()
-    plt.savefig('Plots/Burning_ember_2500/' + ssp + '200.png', dpi=300)
+    plt.savefig('Plots/Burning_ember_2500/' + ssp + '.png', dpi=300)
 
 # %% calculate total increase in probability of tippig for each SSP
 elems = list(Probs_const['Years'].columns.levels[1])
@@ -157,12 +157,12 @@ for ssp in Probs_const['Years'].columns.levels[0]:
     for elem in Probs_const['Years'].columns.levels[1]:
         yrs_5 += [Probs_tip['Years'].loc[0.5, (ssp, elem)] - Probs_const['Years'].loc[0.5, (ssp, elem)]]
         yrs_95 += [Probs_tip['Years'].loc[0.95, (ssp, elem)] - Probs_const['Years'].loc[0.95, (ssp, elem)]]
-        if yrs_95[-1] < -10:
-            print(ssp + ' ' + elem + ' ' + str(yrs_95[-1]))
+        if yrs_5[-1] < -10:
+            print(ssp + ' ' + elem + ' ' + str(yrs_5[-1]))
 
     Y_diff_5[ssp] = yrs_5
     Y_diff_95[ssp] = yrs_95
-
+# %%
 print('Mean Diff [years] at 50%: ' + str(np.nanmean(list(Y_diff_5.values()))))
 print('Mean Diff [years] at 95%: ' + str(np.nanmean(list(Y_diff_95.values()))))
 

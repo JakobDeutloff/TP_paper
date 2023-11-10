@@ -1,7 +1,7 @@
 """
 Collect data fro Table 2
 """
-
+# %%
 from Code.Read_data.Read_SSP_output import read_full_T, read_SSP_outout, read_TE_output
 import pandas as pd
 
@@ -19,7 +19,7 @@ diff_T = T_full_tip - T_full_const
 
 # Set up table DF
 years = [2050, 2100, 2200, 2300, 2400, 2500]
-ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
 vals = ['T', 'carbon_dioxide', 'methane']
 cols = pd.MultiIndex.from_product([ssps, vals, years])
 quants = [0.05, 0.5, 0.95]
@@ -45,3 +45,5 @@ for ssp in ssps:
             table_data.loc[quant, (ssp, 'methane', year)] = (cum_CH4[ssp].loc[year].quantile(quant) * 1e-3).round(1)
 
 
+
+# %%
