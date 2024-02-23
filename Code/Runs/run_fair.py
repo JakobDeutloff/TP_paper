@@ -342,13 +342,13 @@ def main():
     from_source = True
 
     # Set Ens name - also used to load and save parameters
-    ens_name = 'uncoupled_ensemble'
+    ens_name = 'couple_ensemble'
 
     # If TE model should be coupled
-    use_TE_model = False
+    use_TE_model = True
 
     # Choose SSPs
-    choose_ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']
+    choose_ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']
 
     # Choose elements for probabilities
     elements = ['PFTP', 'AMOC', 'GRIS', 'WAIS', 'AMAZ', 'BORF', 'AWSI', 'EAIS', 'EASB', 'GLCR', 'LABC', 'TUND', 'PFAT',

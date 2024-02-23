@@ -39,9 +39,9 @@ def plot_T(ssp, ax):
 
 # %% Plot T comparison
 # mpl.use('Qt5Agg')
-ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
-fig, axes = plt.subplots(1, 4, figsize=(13, 4), sharex='col', sharey='row')
-for i in range(4):
+ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+fig, axes = plt.subplots(1, 5, figsize=(13, 4), sharex='col', sharey=True)
+for i in range(5):
     plot_T(ssps[i], axes[i])
 
 axes[0].set_ylabel('GMST anomaly [°C]')

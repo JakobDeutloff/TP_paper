@@ -19,7 +19,7 @@ diff_T = T_full_tip - T_full_const
 
 # Set up table DF
 years = [2050, 2100, 2200, 2300, 2400, 2500]
-ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
 vals = ['T', 'carbon_dioxide', 'methane']
 cols = pd.MultiIndex.from_product([ssps, vals, years])
 quants = [0.05, 0.5, 0.95]

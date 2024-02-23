@@ -34,7 +34,8 @@ def read_probs(ens_name):
     tip_years_const = pd.read_csv('Data/model_output/' + ens_name + '/Y_tip.csv', index_col=[0], header=[0, 1])
     tip_emms_const = pd.read_csv('Data/model_output/' + ens_name + '/Cum_C_tip.csv', index_col=[0], header=[0, 1])
     cum_TEs = pd.read_csv('Data/model_output/' + ens_name + '/Cum_TEs.csv', index_col=[0], header=[0, 1])
-    return {'Years': tip_years_const, 'Emms': tip_emms_const, 'cumTEs': cum_TEs}
+    slow_tip_probs = pd.read_csv('Data/model_output/' + ens_name + '/slow_tip_probs.csv', index_col=[0], header=[0, 1])
+    return {'Years': tip_years_const, 'Emms': tip_emms_const, 'cumTEs': cum_TEs, 'slow_tip_probs': slow_tip_probs}
 
 
 def read_TE_output(ens_name):

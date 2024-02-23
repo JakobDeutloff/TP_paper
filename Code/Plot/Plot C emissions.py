@@ -32,7 +32,7 @@ TEs = read_TE_output('coupled_ensemble')
 # %% Calculate carbon emissions
 
 # Only look at tier 1 SSPs
-ssps = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
 elems = ['AMAZ', 'PFTP', 'PFAT']
 percentiles = ['0.05', '0.5', '0.95']
 
@@ -51,7 +51,7 @@ cum_emm_tip.loc[:, :] = 0
 
 # Calculate emissions
 
-for i in range(4):
+for i in range(5):
 
     # Uncoupled
     emm_const.loc[:, (ssps[i], 'CO2')] = const['Emm'].loc[:, (ssps[i], 'carbon_dioxide')]
@@ -68,12 +68,12 @@ for i in range(4):
             cum_emm_tip.loc[:, (ssps[i], perc)] += TEs['TE'].loc[:, (ssps[i], elem, 'C_stock', perc)]
 
 # %% Plot C emissions together with SSP emissions
-fig, axes = plt.subplots(1, 4, figsize=(13, 4), sharex='col', sharey='row')
+fig, axes = plt.subplots(1, 5, figsize=(13, 4), sharex='col', sharey='row')
 start = 2000
 end = 2500
-ssps_plot = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
+ssps_plot = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
 
-for i in range(4):
+for i in range(5):
     # Plot Cumulative C Emissions
     ax = axes[i]
     # Uncoupled
@@ -100,11 +100,11 @@ plt.show()
 
 
 # %% Plot CO2 and CH4 concentrations
-fig, axes = plt.subplots(2, 4, figsize=(13, 7), sharex='col')
+fig, axes = plt.subplots(2, 5, figsize=(13, 7), sharex='col')
 start = 2000
 end = 2500
-ssps_plot = ['ssp126', 'ssp245', 'ssp370', 'ssp585']
-for i in range(4):
+ssps_plot = ['ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp585']
+for i in range(5):
     # Plot CO2 anomaly
     ax = axes[0, i]
     CO2_05_c = const['C'].loc[start:end, (ssps_plot[i], 'carbon_dioxide', '0.05')]
