@@ -5,3 +5,4 @@ Plots
 venv
 .vscode/
 *.pyc 
+*.zip
