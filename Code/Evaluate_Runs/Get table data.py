@@ -1,5 +1,5 @@
 """
-Collect data fro Table 2
+Collect data for Table 2
 """
 # %%
 from Code.Read_data.Read_SSP_output import read_full_T, read_SSP_outout, read_TE_output

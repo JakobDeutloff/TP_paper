@@ -12,5 +12,5 @@ The repository is structured as follows:
 | Read_data     | Contains routines to read model output data.                                                                                                                                                                                           |
 | Runs          | Contains script to run FaIR either coupled or uncoupled to CTEM and produce model ensembles with 5000 members.                                                                                                                         |
 
-To be able to reproduce the results from Deutloff et al. (2023) you also have to download the model output and the 
-parameter sets of the model which are provided via Zenodo [here](https://doi.org/10.5281/zenodo.8099908).
+To be able to reproduce the results from Deutloff et al. (2024) you also have to download the model output and the 
+parameter sets of the model which are provided via Zenodo [here](https://doi.org/10.5281/zenodo.10820467).

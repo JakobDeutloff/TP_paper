@@ -153,6 +153,11 @@ fig.show()
 start = 2000
 end = 2500
 
+max = cum_emm_tip.loc[:, ('ssp119', '0.95')].max()
+const = emm_const.loc[start:end, ('ssp119')].sum(axis=1).cumsum().iloc[-1]
+share = max / const
+print('share: ' + str(share) + ', max: ' + str(max))
+
 max = cum_emm_tip.loc[:, ('ssp126', '0.95')].max()
 const = emm_const.loc[start:end, ('ssp126')].sum(axis=1).cumsum().iloc[-1]
 share = max / const
